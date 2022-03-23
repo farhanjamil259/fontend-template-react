@@ -1,41 +1,30 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from "@storybook/react";
+import { templateForComponent } from "./Helpers";
 
-import { Button } from './Button';
+import Button from "../components/buttons/Button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'Example/Button',
+/**
+ * Initialize meta data for component story
+ */
+const meta: Meta = {
+  title: "Components/Buttons",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
+  argTypes: { handleClick: { action: "handleClick" } },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
+/**
+ * Create template to create multiple variants of the component
+ */
+const Template = templateForComponent(Button);
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
+//Button color variants
+export const Primary = Template({ variant: "primary", text: "Button" });
+export const Success = Template({ variant: "success", text: "Button" });
+export const Danger = Template({ variant: "danger", text: "Button" });
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+//Button size variants
+export const Small = Template({ size: "small", text: "Button" });
+export const Medium = Template({ size: "medium", text: "Button" });
+export const Large = Template({ size: "large", text: "Button" });
+
+export default meta;

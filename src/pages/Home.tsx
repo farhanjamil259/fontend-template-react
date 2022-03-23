@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../components/buttons/Button";
 import { State } from "../redux";
 import { IData, loadDataAction } from "../redux/modules/data";
 
@@ -44,7 +45,13 @@ const Home = (): React.ReactElement => {
             })
           }
         />
-        <button type="submit">Submit</button>
+        {/* <Button size="small" />
+        <Button size="medium" />
+        <Button size="large" />
+
+        <Button size="small" variant="primary" />
+        <Button size="medium" variant="success" />
+        <Button size="large" variant="danger" /> */}
       </form>
     </div>
   );
